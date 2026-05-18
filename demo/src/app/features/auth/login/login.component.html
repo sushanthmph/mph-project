@@ -1,11 +1,23 @@
-<div class="login-container">
-  <div class="login-card">
-    <div class="login-header">
-      <h2>Welcome Back</h2>
-      <p>Sign in to continue to Trade File Processing</p>
+<div class="auth-page">
+  <div class="auth-card">
+
+    <!-- Logo mark -->
+    <div class="auth-brand">
+      <div class="auth-brand-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 3v18h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7 16l4-5 4 3 4-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="auth-brand-name">TradeFile Pro</span>
     </div>
 
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+    <div class="auth-header">
+      <h1>Welcome back</h1>
+      <p>Sign in to your account to continue</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="auth-form" novalidate>
       <div class="form-group">
         <label for="username">Username</label>
         <input
@@ -16,6 +28,7 @@
           required
           placeholder="Enter your username"
           class="form-control"
+          autocomplete="username"
         />
       </div>
 
@@ -29,6 +42,7 @@
           required
           placeholder="Enter your password"
           class="form-control"
+          autocomplete="current-password"
         />
       </div>
 
@@ -37,13 +51,19 @@
         class="btn-primary"
         [disabled]="loading || !loginForm.valid"
       >
-        <span *ngIf="!loading">Login</span>
-        <span *ngIf="loading">Logging in...</span>
+        <span *ngIf="!loading">Sign In</span>
+        <span *ngIf="loading" class="btn-loading">
+          <svg class="spin-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Signing in…
+        </span>
       </button>
     </form>
 
-    <div class="register-link">
-      <p>New user? <a routerLink="/register">Register here</a></p>
+    <div class="auth-footer">
+      <p>New to TradeFile Pro? <a routerLink="/register" class="auth-link">Create an account</a></p>
     </div>
+
   </div>
 </div>

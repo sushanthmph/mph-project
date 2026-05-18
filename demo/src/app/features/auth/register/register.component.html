@@ -1,11 +1,22 @@
-<div class="register-container">
-  <div class="register-card">
-    <div class="register-header">
-      <h2>Create Account</h2>
-      <p>Join Trade File Processing System</p>
+<div class="auth-page">
+  <div class="auth-card">
+
+    <div class="auth-brand">
+      <div class="auth-brand-icon">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 3v18h18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M7 16l4-5 4 3 4-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <span class="auth-brand-name">TradeFile Pro</span>
     </div>
 
-    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+    <div class="auth-header">
+      <h1>Create account</h1>
+      <p>Join TradeFile Pro to get started</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm" class="auth-form" novalidate>
       <div class="form-row">
         <div class="form-group">
           <label for="firstName">First Name</label>
@@ -17,9 +28,9 @@
             required
             placeholder="First name"
             class="form-control"
+            autocomplete="given-name"
           />
         </div>
-
         <div class="form-group">
           <label for="lastName">Last Name</label>
           <input
@@ -30,6 +41,7 @@
             required
             placeholder="Last name"
             class="form-control"
+            autocomplete="family-name"
           />
         </div>
       </div>
@@ -44,6 +56,7 @@
           required
           placeholder="Choose a username"
           class="form-control"
+          autocomplete="username"
         />
       </div>
 
@@ -57,6 +70,7 @@
           required
           placeholder="your.email@example.com"
           class="form-control"
+          autocomplete="email"
         />
       </div>
 
@@ -70,6 +84,7 @@
           required
           placeholder="Create a password"
           class="form-control"
+          autocomplete="new-password"
         />
       </div>
 
@@ -83,6 +98,7 @@
           required
           placeholder="Re-enter password"
           class="form-control"
+          autocomplete="new-password"
         />
       </div>
 
@@ -91,13 +107,19 @@
         class="btn-primary"
         [disabled]="loading || !registerForm.valid"
       >
-        <span *ngIf="!loading">Register</span>
-        <span *ngIf="loading">Creating account...</span>
+        <span *ngIf="!loading">Create Account</span>
+        <span *ngIf="loading" class="btn-loading">
+          <svg class="spin-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Creating account…
+        </span>
       </button>
     </form>
 
-    <div class="login-link">
-      <p>Already have an account? <a routerLink="/login">Login here</a></p>
+    <div class="auth-footer">
+      <p>Already have an account? <a routerLink="/login" class="auth-link">Sign in</a></p>
     </div>
+
   </div>
 </div>

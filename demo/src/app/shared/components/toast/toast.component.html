@@ -1,14 +1,27 @@
-<div *ngIf="toast" class="toast-container" [ngClass]="'toast-' + toast.type">
-  <div class="toast-content">
-    <span class="toast-icon">
-      <ng-container [ngSwitch]="toast.type">
-        <span *ngSwitchCase="'success'">✓</span>
-        <span *ngSwitchCase="'error'">✕</span>
-        <span *ngSwitchCase="'warning'">⚠</span>
-        <span *ngSwitchCase="'info'">ℹ</span>
-      </ng-container>
-    </span>
-    <span class="toast-message">{{ toast.message }}</span>
-    <button class="toast-close" (click)="close()">×</button>
+<div *ngIf="toast" class="toast-container" [ngClass]="'toast-' + toast.type" role="alert" aria-live="polite">
+  <div class="toast-icon">
+    <ng-container [ngSwitch]="toast.type">
+      <svg *ngSwitchCase="'success'" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+        <path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg *ngSwitchCase="'error'" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+        <path d="M15 9l-6 6M9 9l6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+      <svg *ngSwitchCase="'warning'" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M12 9v4M12 17h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <svg *ngSwitchCase="'info'" width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+        <path d="M12 16v-4M12 8h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </ng-container>
   </div>
+  <span class="toast-message">{{ toast.message }}</span>
+  <button class="toast-close" (click)="close()" aria-label="Dismiss notification">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+      <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+  </button>
 </div>

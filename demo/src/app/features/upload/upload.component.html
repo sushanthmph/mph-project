@@ -1,22 +1,38 @@
-<div class="upload-container">
+<div class="page-section upload-page">
+
+  <!-- Upload card -->
   <div class="upload-card" *ngIf="!uploadResponse">
     <div class="upload-header">
-      <h2>Upload Transaction File</h2>
-      <p>Upload TXT or CSV files containing transaction data</p>
+      <div class="upload-icon-wrap">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <div>
+        <h2>Upload Transaction File</h2>
+        <p>Upload TXT or CSV files containing transaction data</p>
+      </div>
     </div>
 
-    <!-- Drag & Drop Area -->
-    <div 
+    <!-- Drop zone -->
+    <div
       class="drop-zone"
       [class.dragging]="isDragging"
       (dragover)="onDragOver($event)"
       (dragleave)="onDragLeave($event)"
       (drop)="onDrop($event)"
     >
-      <div class="drop-icon">📁</div>
-      <p class="drop-text">Drag and drop your file here</p>
+      <div class="drop-zone-icon">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6M12 12v6M9 15l3-3 3 3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <p class="drop-title">Drag and drop your file here</p>
       <p class="drop-or">or</p>
       <label for="fileInput" class="btn-browse">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
         Browse Files
         <input
           type="file"
@@ -27,59 +43,76 @@
         />
       </label>
       <p class="drop-hint">
-        Supported formats: {{ allowedExtensions.join(', ').toUpperCase() }} 
-        (Max size: {{ maxFileSize / 1048576 }}MB)
+        Accepted: {{ allowedExtensions.join(', ').toUpperCase() }} &nbsp;&bull;&nbsp; Max {{ maxFileSize / 1048576 }} MB
       </p>
     </div>
 
-    <!-- Selected File Info -->
-    <div class="file-info" *ngIf="selectedFile">
-      <div class="file-details">
-        <div class="file-icon">📄</div>
-        <div class="file-text">
+    <!-- Selected file info -->
+    <div class="file-info-wrap" *ngIf="selectedFile">
+      <div class="file-info">
+        <div class="file-info-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8zM14 2v6h6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="file-info-text">
           <p class="file-name">{{ selectedFile.name }}</p>
           <p class="file-size">{{ getFileSize(selectedFile.size) }}</p>
         </div>
-        <button class="btn-remove" (click)="resetUpload()">✕</button>
+        <button class="btn-remove" (click)="resetUpload()" aria-label="Remove selected file">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </button>
       </div>
 
-      <button 
-        class="btn-upload" 
-        (click)="uploadFile()"
-        [disabled]="loading"
-      >
-        <span *ngIf="!loading">Upload File</span>
-        <span *ngIf="loading">Uploading...</span>
+      <button class="btn-upload" (click)="uploadFile()" [disabled]="loading">
+        <span *ngIf="!loading">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="display:inline;vertical-align:middle;margin-right:6px">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M17 8l-5-5-5 5M12 3v12" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Upload File
+        </span>
+        <span *ngIf="loading" class="btn-loading">
+          <svg class="spin-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          Uploading…
+        </span>
       </button>
     </div>
   </div>
 
-  <!-- Upload Success Response -->
+  <!-- Success state -->
   <div class="upload-success" *ngIf="uploadResponse">
-    <div class="success-icon">✓</div>
-    <h2>File Uploaded Successfully!</h2>
-    
+    <div class="success-circle">
+      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+        <path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </div>
+    <h2>File Uploaded Successfully</h2>
+
     <div class="response-details">
       <div class="response-item">
-        <label>File ID:</label>
-        <span class="file-id">{{ uploadResponse.fileId }}</span>
+        <span class="response-label">File ID</span>
+        <span class="response-value file-id-val">#{{ uploadResponse.fileId }}</span>
       </div>
       <div class="response-item">
-        <label>File Name:</label>
-        <span>{{ uploadResponse.fileName }}</span>
+        <span class="response-label">File Name</span>
+        <span class="response-value">{{ uploadResponse.fileName }}</span>
       </div>
       <div class="response-item">
-        <label>Status:</label>
-        <span class="status-badge">{{ uploadResponse.status }}</span>
+        <span class="response-label">Status</span>
+        <span class="status-badge status-info">{{ uploadResponse.status }}</span>
       </div>
       <div class="response-item">
-        <label>Message:</label>
-        <span>{{ uploadResponse.message }}</span>
+        <span class="response-label">Message</span>
+        <span class="response-value">{{ uploadResponse.message }}</span>
       </div>
     </div>
 
-    <button class="btn-primary" (click)="resetUpload()">
-      Upload Another File
-    </button>
+    <button class="btn-primary" (click)="resetUpload()">Upload Another File</button>
   </div>
+
 </div>

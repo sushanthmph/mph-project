@@ -1,67 +1,73 @@
-<div class="archive-container">
-  <div class="archive-header">
+<div class="page-section">
+
+  <div class="page-header">
     <h2>Archived Records</h2>
     <button class="btn-refresh" (click)="loadArchivedFiles()">
-      <span class="icon">🔄</span> Refresh
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Refresh
     </button>
   </div>
 
-  <!-- Loading Spinner -->
   <div *ngIf="loading" class="loading-overlay">
     <div class="spinner"></div>
   </div>
 
-  <!-- Archived Files Table -->
-  <div class="table-container" *ngIf="!loading">
-    <table class="files-table" *ngIf="archivedFiles.length > 0">
-      <thead>
-        <tr>
-          <th>File ID</th>
-          <th>File Name</th>
-          <th>Upload Time</th>
-          <th>Total Records</th>
-          <th>Success Count</th>
-          <th>Status</th>
-          <th>Actions</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let file of archivedFiles" class="file-row">
-          <td>{{ file.fileId }}</td>
-          <td class="file-name">{{ file.fileName }}</td>
-          <td>{{ file.uploadTime | date: 'yyyy-MM-dd HH:mm:ss' }}</td>
-          <td>{{ file.recordCount }}</td>
-          <td class="success-count">{{ file.successCount }}</td>
-          <td>
-            <span class="status-badge status-archived">
-              {{ file.status }}
-            </span>
-          </td>
-          <td class="actions-cell">
-            <button 
-              class="btn-action btn-view" 
-              (click)="viewFile(file)"
-              title="View Details"
-            >
-              👁️
-            </button>
-            <button 
-              class="btn-action btn-unarchive" 
-              (click)="unarchiveFile(file)"
-              title="Unarchive"
-            >
-              📤
-            </button>
-          </td>
-        </tr>
-      </tbody>
-    </table>
+  <div *ngIf="!loading">
+    <div class="table-wrap" *ngIf="archivedFiles.length > 0">
+      <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>File Name</th>
+              <th>Upload Time</th>
+              <th>Records</th>
+              <th>Success</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let file of archivedFiles">
+              <td class="col-muted">#{{ file.fileId }}</td>
+              <td class="col-filename">{{ file.fileName }}</td>
+              <td class="col-muted">{{ file.uploadTime | date: 'yyyy-MM-dd HH:mm' }}</td>
+              <td>{{ file.recordCount }}</td>
+              <td class="col-success">{{ file.successCount }}</td>
+              <td>
+                <span class="status-badge status-archived">{{ file.status }}</span>
+              </td>
+              <td>
+                <div class="actions-cell">
+                  <button class="btn-action btn-view" (click)="viewFile(file)" title="View details" aria-label="View file details">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" stroke-width="2"/>
+                      <circle cx="12" cy="12" r="3" stroke="currentColor" stroke-width="2"/>
+                    </svg>
+                  </button>
+                  <button class="btn-action btn-unarchive" (click)="unarchiveFile(file)" title="Unarchive" aria-label="Unarchive file">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                      <path d="M21 8v13H3V8M1 3h22v5H1zM12 12v6M9 15l3 3 3-3" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <div *ngIf="archivedFiles.length === 0" class="no-data">
-      <div class="no-data-icon">🗄️</div>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M21 8v13H3V8M1 3h22v5H1zM10 12h4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
       <p>No archived files found</p>
     </div>
   </div>
+
 </div>
 
 <!-- File Details Modal -->
@@ -69,38 +75,36 @@
   <div class="modal-content" (click)="$event.stopPropagation()">
     <div class="modal-header">
       <h3>Archived File Details</h3>
-      <button class="modal-close" (click)="closeDetailsModal()">×</button>
+      <button class="modal-close" (click)="closeDetailsModal()" aria-label="Close details">×</button>
     </div>
-
     <div class="modal-body" *ngIf="selectedFile">
       <div class="details-grid">
         <div class="detail-item">
-          <label>File ID:</label>
-          <span>{{ selectedFile.fileId }}</span>
+          <label>File ID</label>
+          <span>#{{ selectedFile.fileId }}</span>
         </div>
         <div class="detail-item">
-          <label>File Name:</label>
+          <label>File Name</label>
           <span>{{ selectedFile.fileName }}</span>
         </div>
         <div class="detail-item">
-          <label>Upload Time:</label>
+          <label>Upload Time</label>
           <span>{{ selectedFile.uploadTime | date: 'yyyy-MM-dd HH:mm:ss' }}</span>
         </div>
         <div class="detail-item">
-          <label>Status:</label>
+          <label>Status</label>
           <span class="status-badge status-archived">{{ selectedFile.status }}</span>
         </div>
         <div class="detail-item">
-          <label>Total Records:</label>
+          <label>Total Records</label>
           <span>{{ selectedFile.recordCount }}</span>
         </div>
         <div class="detail-item">
-          <label>Successful Records:</label>
-          <span class="success-count">{{ selectedFile.successCount }}</span>
+          <label>Successful Records</label>
+          <span class="col-success">{{ selectedFile.successCount }}</span>
         </div>
       </div>
     </div>
-
     <div class="modal-footer">
       <button class="btn-primary" (click)="closeDetailsModal()">Close</button>
     </div>

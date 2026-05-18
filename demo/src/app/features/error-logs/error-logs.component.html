@@ -1,53 +1,61 @@
-<div class="error-logs-container">
-  <div class="error-logs-header">
+<div class="page-section">
+
+  <div class="page-header">
     <h2>Error Logs</h2>
     <button class="btn-refresh" (click)="loadErrorLogs()">
-      <span class="icon">🔄</span> Refresh
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <path d="M23 4v6h-6M1 20v-6h6M3.51 9a9 9 0 0114.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0020.49 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Refresh
     </button>
   </div>
 
-  <!-- Loading Spinner -->
   <div *ngIf="loading" class="loading-overlay">
     <div class="spinner"></div>
   </div>
 
-  <!-- Error Logs Table -->
-  <div class="table-container" *ngIf="!loading">
-    <table class="error-table" *ngIf="errorLogs.length > 0">
-      <thead>
-        <tr>
-          <th>Error ID</th>
-          <th>File ID</th>
-          <th>Transaction ID</th>
-          <th>Account Number</th>
-          <th>Error Field</th>
-          <th>Error Message</th>
-          <th>Status</th>
-          <th>Timestamp</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let error of errorLogs" class="error-row">
-          <td>{{ error.errorId }}</td>
-          <td class="file-id">{{ error.fileId }}</td>
-          <td>{{ error.transactionId }}</td>
-          <td>{{ error.accountNumber }}</td>
-          <td class="error-field">{{ error.errorField }}</td>
-          <td class="error-message">{{ error.errorMessage }}</td>
-          <td>
-            <span class="status-badge status-error">
-              {{ error.status }}
-            </span>
-          </td>
-          <td>{{ error.timestamp | date: 'yyyy-MM-dd HH:mm:ss' }}</td>
-        </tr>
-      </tbody>
-    </table>
+  <div *ngIf="!loading">
+    <div class="table-wrap" *ngIf="errorLogs.length > 0">
+      <div class="table-scroll">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Error ID</th>
+              <th>File ID</th>
+              <th>Transaction ID</th>
+              <th>Account Number</th>
+              <th>Error Field</th>
+              <th>Error Message</th>
+              <th>Status</th>
+              <th>Timestamp</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let error of errorLogs">
+              <td class="col-muted">#{{ error.errorId }}</td>
+              <td class="col-fileid">#{{ error.fileId }}</td>
+              <td class="col-muted">{{ error.transactionId }}</td>
+              <td>{{ error.accountNumber }}</td>
+              <td class="col-field">{{ error.errorField }}</td>
+              <td class="col-errormsg" [title]="error.errorMessage">{{ error.errorMessage }}</td>
+              <td>
+                <span class="status-badge status-error">{{ error.status }}</span>
+              </td>
+              <td class="col-muted">{{ error.timestamp | date: 'yyyy-MM-dd HH:mm' }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
 
     <div *ngIf="errorLogs.length === 0" class="no-data">
-      <div class="no-data-icon">✅</div>
+      <svg width="48" height="48" viewBox="0 0 24 24" fill="none" aria-hidden="true" style="color:#22C55E">
+        <path d="M22 11.08V12a10 10 0 11-5.93-9.14" stroke="currentColor" stroke-width="1.75" stroke-linecap="round"/>
+        <path d="M22 4L12 14.01l-3-3" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
       <p>No error logs found</p>
-      <p class="no-data-subtitle">All transactions processed successfully!</p>
+      <p class="no-data-subtitle">All transactions processed successfully</p>
     </div>
   </div>
+
 </div>

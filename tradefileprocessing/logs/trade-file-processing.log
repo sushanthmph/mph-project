@@ -1,0 +1,253 @@
+2026-05-18T13:30:26.708+05:30  INFO 22104 --- [main] rocessingandmanagementserviceApplication : Starting TradefileprocessingandmanagementserviceApplication using Java 17.0.15 with PID 22104 (C:\Users\sushanth.hp\Downloads\tradefileprocessingandmanagementservice\tradefileprocessing\api-module\target\classes started by sushanth.hp in C:\Users\sushanth.hp\Downloads\tradefileprocessingandmanagementservice\tradefileprocessing)
+2026-05-18T13:30:26.726+05:30  INFO 22104 --- [main] rocessingandmanagementserviceApplication : No active profile set, falling back to 1 default profile: "default"
+2026-05-18T13:30:28.531+05:30  INFO 22104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-18T13:30:28.658+05:30  INFO 22104 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 113 ms. Found 5 JPA repository interfaces.
+2026-05-18T13:30:29.584+05:30  INFO 22104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2026-05-18T13:30:29.598+05:30  INFO 22104 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-18T13:30:29.598+05:30  INFO 22104 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-05-18T13:30:29.791+05:30  INFO 22104 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-18T13:30:29.791+05:30  INFO 22104 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2942 ms
+2026-05-18T13:30:30.264+05:30  INFO 22104 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-18T13:30:30.391+05:30  INFO 22104 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
+2026-05-18T13:30:30.391+05:30  INFO 22104 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2026-05-18T13:30:30.892+05:30  INFO 22104 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-18T13:30:30.932+05:30  INFO 22104 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-18T13:30:31.233+05:30  INFO 22104 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@789dd6bf
+2026-05-18T13:30:31.233+05:30  INFO 22104 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-18T13:30:31.313+05:30  WARN 22104 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-18T13:30:32.807+05:30  INFO 22104 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-18T13:30:32.902+05:30  INFO 22104 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18T13:30:33.425+05:30  INFO 22104 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-18T13:30:34.160+05:30  INFO 22104 --- [main] com.mphasis.tfp.batch.config.JobConfig   : Configuring batch step with chunk size: 100 and skip limit: 10
+2026-05-18T13:30:34.388+05:30  WARN 22104 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-18T13:30:35.119+05:30  INFO 22104 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-05-18T13:30:35.230+05:30  INFO 22104 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2026-05-18T13:30:35.245+05:30  INFO 22104 --- [main] rocessingandmanagementserviceApplication : Started TradefileprocessingandmanagementserviceApplication in 9.359 seconds (process running for 10.18)
+2026-05-18T13:32:30.487+05:30  INFO 22104 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18T13:32:30.503+05:30  INFO 22104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-18T13:32:30.507+05:30  INFO 22104 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-18T14:54:00.866+05:30  INFO 16092 --- [main] rocessingandmanagementserviceApplication : Starting TradefileprocessingandmanagementserviceApplication using Java 17.0.15 with PID 16092 (C:\Users\sushanth.hp\Downloads\tradefileprocessingandmanagementservice\tradefileprocessing\api-module\target\classes started by sushanth.hp in C:\Users\sushanth.hp\Downloads\tradefileprocessingandmanagementservice\tradefileprocessing)
+2026-05-18T14:54:00.870+05:30  INFO 16092 --- [main] rocessingandmanagementserviceApplication : No active profile set, falling back to 1 default profile: "default"
+2026-05-18T14:54:02.425+05:30  INFO 16092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-18T14:54:02.550+05:30  INFO 16092 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 107 ms. Found 5 JPA repository interfaces.
+2026-05-18T14:54:03.602+05:30  INFO 16092 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2026-05-18T14:54:03.621+05:30  INFO 16092 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-18T14:54:03.621+05:30  INFO 16092 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-05-18T14:54:03.921+05:30  INFO 16092 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-18T14:54:03.922+05:30  INFO 16092 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 2972 ms
+2026-05-18T14:54:04.422+05:30  INFO 16092 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-18T14:54:04.542+05:30  INFO 16092 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
+2026-05-18T14:54:04.548+05:30  INFO 16092 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2026-05-18T14:54:05.187+05:30  INFO 16092 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-18T14:54:05.220+05:30  INFO 16092 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-18T14:54:05.655+05:30  INFO 16092 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@213012a0
+2026-05-18T14:54:05.661+05:30  INFO 16092 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-18T14:54:05.716+05:30  WARN 16092 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-18T14:54:07.354+05:30  INFO 16092 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-18T14:54:07.405+05:30  INFO 16092 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18T14:54:08.036+05:30  INFO 16092 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-18T14:54:08.969+05:30  INFO 16092 --- [main] com.mphasis.tfp.batch.config.JobConfig   : Configuring batch step with chunk size: 100 and skip limit: 10
+2026-05-18T14:54:09.240+05:30  WARN 16092 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-18T14:54:10.051+05:30  INFO 16092 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-05-18T14:54:10.180+05:30  INFO 16092 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2026-05-18T14:54:10.187+05:30  INFO 16092 --- [main] rocessingandmanagementserviceApplication : Started TradefileprocessingandmanagementserviceApplication in 10.032 seconds (process running for 10.652)
+2026-05-18T14:54:46.240+05:30  INFO 16092 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-18T14:54:46.245+05:30  INFO 16092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-18T14:54:46.248+05:30  INFO 16092 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-05-18T14:54:47.954+05:30  INFO 16092 --- [http-nio-8080-exec-8] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 765 ms
+2026-05-18T14:58:09.722+05:30  INFO 16092 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18T14:58:09.724+05:30  INFO 16092 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-18T14:58:09.726+05:30  INFO 16092 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-18T16:51:24.418+05:30  INFO 912 --- [main] rocessingandmanagementserviceApplication : Starting TradefileprocessingandmanagementserviceApplication using Java 17.0.15 with PID 912 (C:\Users\sushanth.hp\Downloads\tradefileprocessingandmanagementservice\tradefileprocessing\api-module\target\classes started by sushanth.hp in C:\Users\sushanth.hp\Downloads\tradefileprocessingandmanagementservice\tradefileprocessing)
+2026-05-18T16:51:24.424+05:30  INFO 912 --- [main] rocessingandmanagementserviceApplication : No active profile set, falling back to 1 default profile: "default"
+2026-05-18T16:51:28.116+05:30  INFO 912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-18T16:51:28.522+05:30  INFO 912 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 383 ms. Found 5 JPA repository interfaces.
+2026-05-18T16:51:30.731+05:30  INFO 912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2026-05-18T16:51:30.759+05:30  INFO 912 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-18T16:51:30.761+05:30  INFO 912 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-05-18T16:51:31.561+05:30  INFO 912 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-18T16:51:31.561+05:30  INFO 912 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6982 ms
+2026-05-18T16:51:32.820+05:30  INFO 912 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-18T16:51:33.272+05:30  INFO 912 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
+2026-05-18T16:51:33.283+05:30  INFO 912 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2026-05-18T16:51:35.032+05:30  INFO 912 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-18T16:51:35.130+05:30  INFO 912 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-18T16:51:35.771+05:30  INFO 912 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@48106381
+2026-05-18T16:51:35.776+05:30  INFO 912 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-18T16:51:35.912+05:30  WARN 912 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-18T16:51:38.784+05:30  INFO 912 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-18T16:51:38.919+05:30  INFO 912 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18T16:51:39.860+05:30  INFO 912 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-18T16:51:41.275+05:30  INFO 912 --- [main] com.mphasis.tfp.batch.config.JobConfig   : Configuring batch step with chunk size: 100 and skip limit: 10
+2026-05-18T16:51:41.702+05:30  WARN 912 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-18T16:51:42.898+05:30  INFO 912 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-05-18T16:51:43.068+05:30  INFO 912 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2026-05-18T16:51:43.098+05:30  INFO 912 --- [main] rocessingandmanagementserviceApplication : Started TradefileprocessingandmanagementserviceApplication in 22.257 seconds (process running for 24.445)
+2026-05-18T16:53:31.664+05:30  INFO 912 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-18T16:53:31.665+05:30  INFO 912 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-18T16:53:31.668+05:30  INFO 912 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-05-18T16:53:33.569+05:30  INFO 912 --- [http-nio-8080-exec-3] o.springdoc.api.AbstractOpenApiResource  : Init duration for springdoc-openapi is: 1119 ms
+2026-05-18T16:55:56.584+05:30  INFO 912 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18T16:55:56.588+05:30  INFO 912 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-18T16:55:56.594+05:30  INFO 912 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-05-18T17:02:59.750+05:30  INFO 23044 --- [main] rocessingandmanagementserviceApplication : Starting TradefileprocessingandmanagementserviceApplication using Java 17.0.15 with PID 23044 (C:\Users\sushanth.hp\Downloads\tradefileprocessingandmanagementservice\tradefileprocessing\api-module\target\classes started by sushanth.hp in C:\Users\sushanth.hp\Downloads\tradefileprocessingandmanagementservice\tradefileprocessing)
+2026-05-18T17:02:59.758+05:30  INFO 23044 --- [main] rocessingandmanagementserviceApplication : No active profile set, falling back to 1 default profile: "default"
+2026-05-18T17:03:01.955+05:30  INFO 23044 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-05-18T17:03:02.083+05:30  INFO 23044 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 122 ms. Found 5 JPA repository interfaces.
+2026-05-18T17:03:03.175+05:30  INFO 23044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2026-05-18T17:03:03.188+05:30  INFO 23044 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-05-18T17:03:03.188+05:30  INFO 23044 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.15]
+2026-05-18T17:03:03.435+05:30  INFO 23044 --- [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2026-05-18T17:03:03.435+05:30  INFO 23044 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 3585 ms
+2026-05-18T17:03:03.933+05:30  INFO 23044 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2026-05-18T17:03:04.099+05:30  INFO 23044 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.2.13.Final
+2026-05-18T17:03:04.105+05:30  INFO 23044 --- [main] org.hibernate.cfg.Environment            : HHH000406: Using bytecode reflection optimizer
+2026-05-18T17:03:04.815+05:30  INFO 23044 --- [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-05-18T17:03:04.897+05:30  INFO 23044 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-05-18T17:03:05.254+05:30  INFO 23044 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@213012a0
+2026-05-18T17:03:05.254+05:30  INFO 23044 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-05-18T17:03:05.302+05:30  WARN 23044 --- [main] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-05-18T17:03:06.885+05:30  INFO 23044 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-05-18T17:03:06.957+05:30  INFO 23044 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18T17:03:07.707+05:30  INFO 23044 --- [main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-05-18T17:03:08.982+05:30  INFO 23044 --- [main] com.mphasis.tfp.batch.config.JobConfig   : Configuring batch step with chunk size: 100 and skip limit: 10
+2026-05-18T17:03:09.364+05:30  WARN 23044 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-05-18T17:03:10.390+05:30  INFO 23044 --- [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint(s) beneath base path '/actuator'
+2026-05-18T17:03:10.561+05:30  INFO 23044 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+2026-05-18T17:03:10.586+05:30  INFO 23044 --- [main] rocessingandmanagementserviceApplication : Started TradefileprocessingandmanagementserviceApplication in 11.604 seconds (process running for 12.433)
+2026-05-18T17:04:06.514+05:30  INFO 23044 --- [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-05-18T17:04:06.514+05:30  INFO 23044 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-05-18T17:04:06.514+05:30  INFO 23044 --- [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 0 ms
+2026-05-18T17:04:06.661+05:30  INFO 23044 --- [http-nio-8080-exec-2] c.m.t.c.AuthenticationControllerImpl     : API: Login request for username: sush987
+2026-05-18T17:04:06.661+05:30  INFO 23044 --- [http-nio-8080-exec-2] c.m.tfp.servicesimpl.UserServiceImpl     : Login request received for username: sush987
+2026-05-18T17:04:06.825+05:30 DEBUG 23044 --- [http-nio-8080-exec-2] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-05-18T17:04:06.936+05:30 ERROR 23044 --- [http-nio-8080-exec-2] c.m.tfp.servicesimpl.UserServiceImpl     : Invalid password for username: sush987
+2026-05-18T17:04:06.936+05:30 ERROR 23044 --- [http-nio-8080-exec-2] c.m.t.exception.GlobalExceptionHandler   : Illegal argument: Invalid username or password. | Path: /auth/login
+2026-05-18T17:04:16.570+05:30  INFO 23044 --- [http-nio-8080-exec-3] c.m.t.c.AuthenticationControllerImpl     : API: Login request for username: sush987
+2026-05-18T17:04:16.570+05:30  INFO 23044 --- [http-nio-8080-exec-3] c.m.tfp.servicesimpl.UserServiceImpl     : Login request received for username: sush987
+2026-05-18T17:04:16.570+05:30 DEBUG 23044 --- [http-nio-8080-exec-3] org.hibernate.SQL                        : 
+    select
+        u1_0.id,
+        u1_0.email,
+        u1_0.first_name,
+        u1_0.last_name,
+        u1_0.password,
+        u1_0.username 
+    from
+        users u1_0 
+    where
+        u1_0.username=?
+2026-05-18T17:04:16.677+05:30  INFO 23044 --- [http-nio-8080-exec-3] c.m.tfp.servicesimpl.UserServiceImpl     : JWT token generated for user: sush987
+2026-05-18T17:04:17.544+05:30  INFO 23044 --- [http-nio-8080-exec-5] c.m.t.c.TransactionControllerImpl        : API: Received search request - fileId: null, fileName: null, from: null, to: null, status: null
+2026-05-18T17:04:17.544+05:30  INFO 23044 --- [http-nio-8080-exec-5] c.m.tfp.servicesimpl.FileUploadImpl      : File search request received
+2026-05-18T17:04:17.544+05:30  INFO 23044 --- [http-nio-8080-exec-5] c.m.tfp.servicesimpl.FileUploadImpl      : Search criteria - File ID: null, File Name: null, Date From: null, Date To: null, Status: null
+2026-05-18T17:04:17.544+05:30 DEBUG 23044 --- [http-nio-8080-exec-5] c.m.tfp.servicesimpl.FileUploadImpl      : Resolved datetime range: null to null
+2026-05-18T17:04:17.611+05:30 DEBUG 23044 --- [http-nio-8080-exec-5] org.hibernate.SQL                        : 
+    SELECT
+        * 
+    FROM
+        transaction_metadata t 
+    WHERE
+        (
+            ? IS NULL 
+            OR t.file_id = ?
+        ) 
+        AND (
+            ? IS NULL 
+            OR LOWER(t.filename) LIKE LOWER(CONCAT('%', CAST(? AS TEXT), '%'))
+        ) 
+        AND (
+            CAST(? AS TIMESTAMP) IS NULL 
+            OR t.upload_time >= CAST(? AS TIMESTAMP)
+        ) 
+        AND (
+            CAST(? AS TIMESTAMP) IS NULL 
+            OR t.upload_time <= CAST(? AS TIMESTAMP)
+        ) 
+        AND (
+            ? IS NULL 
+            OR t.status = CAST(? AS TEXT)
+        )
+2026-05-18T17:04:17.642+05:30  INFO 23044 --- [http-nio-8080-exec-5] c.m.tfp.servicesimpl.FileUploadImpl      : Search completed - Found 21 file(s)
+2026-05-18T17:04:47.285+05:30  INFO 23044 --- [http-nio-8080-exec-8] c.m.t.c.TransactionControllerImpl        : API: Received request to get all archived files
+2026-05-18T17:04:47.289+05:30  INFO 23044 --- [http-nio-8080-exec-8] c.m.tfp.servicesimpl.FileUploadImpl      : Fetching all archived files
+2026-05-18T17:04:47.289+05:30 DEBUG 23044 --- [http-nio-8080-exec-8] org.hibernate.SQL                        : 
+    select
+        t1_0.file_id,
+        t1_0.error_count,
+        t1_0.filename,
+        t1_0.status,
+        t1_0.success_count,
+        t1_0.total_records,
+        t1_0.upload_time 
+    from
+        transaction_metadata t1_0 
+    where
+        t1_0.status=?
+2026-05-18T17:04:47.289+05:30  INFO 23044 --- [http-nio-8080-exec-8] c.m.tfp.servicesimpl.FileUploadImpl      : Found 1 archived file(s)
+2026-05-18T17:04:51.708+05:30  INFO 23044 --- [http-nio-8080-exec-10] c.m.t.c.TransactionControllerImpl        : API: Received request to get all error logs
+2026-05-18T17:04:51.714+05:30  INFO 23044 --- [http-nio-8080-exec-10] c.m.tfp.servicesimpl.FileUploadImpl      : Fetching all error logs
+2026-05-18T17:04:51.725+05:30 DEBUG 23044 --- [http-nio-8080-exec-10] org.hibernate.SQL                        : 
+    select
+        f1_0.error_id,
+        f1_0.account_number,
+        f1_0.created_time,
+        f1_0.error_field,
+        f1_0.error_message,
+        f1_0.file_load_id,
+        f1_0.record_count,
+        f1_0.status,
+        f1_0.transaction_id 
+    from
+        failed_transactions f1_0 
+    join
+        transaction_metadata t1_0 
+            on f1_0.file_load_id=t1_0.file_id 
+    where
+        t1_0.status<>'DELETED'
+2026-05-18T17:04:51.787+05:30  INFO 23044 --- [http-nio-8080-exec-10] c.m.tfp.servicesimpl.FileUploadImpl      : Found 514 error log(s)
+2026-05-18T17:05:12.214+05:30  INFO 23044 --- [http-nio-8080-exec-1] c.m.t.c.TransactionControllerImpl        : API: Received search request - fileId: null, fileName: null, from: null, to: null, status: null
+2026-05-18T17:05:12.218+05:30  INFO 23044 --- [http-nio-8080-exec-1] c.m.tfp.servicesimpl.FileUploadImpl      : File search request received
+2026-05-18T17:05:12.218+05:30  INFO 23044 --- [http-nio-8080-exec-1] c.m.tfp.servicesimpl.FileUploadImpl      : Search criteria - File ID: null, File Name: null, Date From: null, Date To: null, Status: null
+2026-05-18T17:05:12.219+05:30 DEBUG 23044 --- [http-nio-8080-exec-1] c.m.tfp.servicesimpl.FileUploadImpl      : Resolved datetime range: null to null
+2026-05-18T17:05:12.220+05:30 DEBUG 23044 --- [http-nio-8080-exec-1] org.hibernate.SQL                        : 
+    SELECT
+        * 
+    FROM
+        transaction_metadata t 
+    WHERE
+        (
+            ? IS NULL 
+            OR t.file_id = ?
+        ) 
+        AND (
+            ? IS NULL 
+            OR LOWER(t.filename) LIKE LOWER(CONCAT('%', CAST(? AS TEXT), '%'))
+        ) 
+        AND (
+            CAST(? AS TIMESTAMP) IS NULL 
+            OR t.upload_time >= CAST(? AS TIMESTAMP)
+        ) 
+        AND (
+            CAST(? AS TIMESTAMP) IS NULL 
+            OR t.upload_time <= CAST(? AS TIMESTAMP)
+        ) 
+        AND (
+            ? IS NULL 
+            OR t.status = CAST(? AS TEXT)
+        )
+2026-05-18T17:05:12.226+05:30  INFO 23044 --- [http-nio-8080-exec-1] c.m.tfp.servicesimpl.FileUploadImpl      : Search completed - Found 21 file(s)
+2026-05-18T17:05:47.615+05:30  INFO 23044 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-05-18T17:05:47.615+05:30  INFO 23044 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-05-18T17:05:47.615+05:30  INFO 23044 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

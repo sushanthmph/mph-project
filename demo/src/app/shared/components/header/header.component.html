@@ -1,0 +1,43 @@
+<header class="app-header">
+  <div class="header-container">
+    <!-- Logo -->
+    <div class="logo-section">
+      <img src="assets/logo.png" alt="Logo" class="logo" />
+    </div>
+
+    <!-- Project Name -->
+    <div class="title-section">
+      <h1 class="project-title">Trade File Processing System</h1>
+    </div>
+
+    <!-- Right Section -->
+    <div class="nav-section">
+      <a routerLink="/about" class="nav-link">About Us</a>
+      <button *ngIf="isAuthenticated$ | async" (click)="logout()" class="logout-btn">
+        Logout
+      </button>
+    </div>
+  </div>
+
+  <!-- Horizontal Navigation Bar (Only show when authenticated) -->
+  <nav class="horizontal-nav" *ngIf="isAuthenticated$ | async">
+    <div class="nav-container">
+      <a routerLink="/upload" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">📤</span>
+        <span class="nav-text">Upload</span>
+      </a>
+      <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">📊</span>
+        <span class="nav-text">Dashboard</span>
+      </a>
+      <a routerLink="/archive" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">🗄️</span>
+        <span class="nav-text">Archive Records</span>
+      </a>
+      <a routerLink="/error-logs" routerLinkActive="active" class="nav-item">
+        <span class="nav-icon">⚠️</span>
+        <span class="nav-text">Error Logs</span>
+      </a>
+    </div>
+  </nav>
+</header>

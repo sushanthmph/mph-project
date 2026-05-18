@@ -1,0 +1,85 @@
+<div class="upload-container">
+  <div class="upload-card" *ngIf="!uploadResponse">
+    <div class="upload-header">
+      <h2>Upload Transaction File</h2>
+      <p>Upload TXT or CSV files containing transaction data</p>
+    </div>
+
+    <!-- Drag & Drop Area -->
+    <div 
+      class="drop-zone"
+      [class.dragging]="isDragging"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      (drop)="onDrop($event)"
+    >
+      <div class="drop-icon">📁</div>
+      <p class="drop-text">Drag and drop your file here</p>
+      <p class="drop-or">or</p>
+      <label for="fileInput" class="btn-browse">
+        Browse Files
+        <input
+          type="file"
+          id="fileInput"
+          (change)="onFileSelected($event)"
+          accept=".txt,.csv"
+          hidden
+        />
+      </label>
+      <p class="drop-hint">
+        Supported formats: {{ allowedExtensions.join(', ').toUpperCase() }} 
+        (Max size: {{ maxFileSize / 1048576 }}MB)
+      </p>
+    </div>
+
+    <!-- Selected File Info -->
+    <div class="file-info" *ngIf="selectedFile">
+      <div class="file-details">
+        <div class="file-icon">📄</div>
+        <div class="file-text">
+          <p class="file-name">{{ selectedFile.name }}</p>
+          <p class="file-size">{{ getFileSize(selectedFile.size) }}</p>
+        </div>
+        <button class="btn-remove" (click)="resetUpload()">✕</button>
+      </div>
+
+      <button 
+        class="btn-upload" 
+        (click)="uploadFile()"
+        [disabled]="loading"
+      >
+        <span *ngIf="!loading">Upload File</span>
+        <span *ngIf="loading">Uploading...</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Upload Success Response -->
+  <div class="upload-success" *ngIf="uploadResponse">
+    <div class="success-icon">✓</div>
+    <h2>File Uploaded Successfully!</h2>
+    
+    <div class="response-details">
+      <div class="response-item">
+        <label>File ID:</label>
+        <span class="file-id">{{ uploadResponse.fileId }}</span>
+      </div>
+      <div class="response-item">
+        <label>File Name:</label>
+        <span>{{ uploadResponse.fileName }}</span>
+      </div>
+      <div class="response-item">
+        <label>Status:</label>
+        <span class="status-badge">{{ uploadResponse.status }}</span>
+      </div>
+      <div class="response-item">
+        <label>Message:</label>
+        <span>{{ uploadResponse.message }}</span>
+      </div>
+    </div>
+
+    <button class="btn-primary" (click)="resetUpload()">
+      Upload Another File
+    </button>
+  </div>
+</div>

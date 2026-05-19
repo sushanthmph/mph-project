@@ -86,3 +86,16 @@
 }
 
 @keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── Light mode ─────────────────────────────── */
+:host-context(html.light) .auth-card {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1), 0 0 0 1px rgba(0, 0, 0, 0.04);
+}
+:host-context(html.light) .auth-brand-name { color: #0F172A; }
+:host-context(html.light) .auth-header h1  { color: #0F172A; }
+:host-context(html.light) .auth-header p   { color: #475569; }
+:host-context(html.light) .auth-footer p   { color: #475569; }
+:host-context(html.light) .auth-link       { color: #D97706; }
+:host-context(html.light) .auth-link:hover { color: #B45309; }

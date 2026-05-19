@@ -1,6 +1,8 @@
 :root {
-  --bg-base: #0F172A;
-  --bg-surface: #1E293B;
+  color-scheme: dark;
+  --bg-base: #09090B;
+  --bg-surface: #18181B;
+  --modal-bg: #141418;
   --glass-bg: rgba(255, 255, 255, 0.04);
   --glass-bg-hover: rgba(255, 255, 255, 0.07);
   --glass-border: rgba(255, 255, 255, 0.08);
@@ -40,7 +42,7 @@ body {
   background-image:
     radial-gradient(ellipse at 15% 60%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
     radial-gradient(ellipse at 85% 15%, rgba(245, 158, 11, 0.07) 0%, transparent 40%),
-    radial-gradient(ellipse at 50% 100%, rgba(30, 41, 59, 0.8) 0%, transparent 60%);
+    radial-gradient(ellipse at 50% 100%, rgba(15, 15, 20, 0.9) 0%, transparent 60%);
   background-attachment: fixed;
   color: var(--text);
   line-height: 1.6;
@@ -95,6 +97,7 @@ input, select, textarea { font-family: inherit; }
   font-size: 0.9375rem;
   transition: border-color var(--transition), background var(--transition);
   appearance: none;
+  color-scheme: dark;
 }
 
 .form-control::placeholder { color: var(--text-subtle); }
@@ -116,6 +119,21 @@ select.form-control {
   background-repeat: no-repeat;
   background-position: right 1rem center;
   padding-right: 2.5rem;
+}
+
+select.form-control option {
+  background-color: #18181B;
+  color: #F8FAFC;
+}
+
+html.dark select.form-control option {
+  background-color: #1E293B;
+  color: #F8FAFC;
+}
+
+html.light select.form-control option {
+  background-color: #FFFFFF;
+  color: #0F172A;
 }
 
 /* ── Shared button styles ───────────────────────────── */
@@ -209,7 +227,7 @@ select.form-control {
 }
 
 .modal-content {
-  background: #1E293B;
+  background: var(--modal-bg);
   border: 1px solid var(--glass-border-strong);
   border-radius: var(--radius-xl);
   width: 100%;
@@ -491,3 +509,222 @@ select.form-control {
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ══════════════════════════════════════════════
+   DARK (slate) MODE — html.dark overrides
+   ══════════════════════════════════════════════ */
+html.dark {
+  color-scheme: dark;
+  --bg-base: #0F172A;
+  --bg-surface: #1E293B;
+  --modal-bg: #1E293B;
+}
+
+html.dark body {
+  background-color: var(--bg-base);
+  background-image:
+    radial-gradient(ellipse at 15% 60%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 15%, rgba(245, 158, 11, 0.07) 0%, transparent 40%),
+    radial-gradient(ellipse at 50% 100%, rgba(30, 41, 59, 0.8) 0%, transparent 60%);
+}
+
+html.dark ::-webkit-scrollbar-track { background: #1E293B; }
+
+html.dark .app-header {
+  background: rgba(15, 23, 42, 0.92);
+}
+
+/* ══════════════════════════════════════════════
+   LIGHT MODE — html.light overrides
+   ══════════════════════════════════════════════ */
+html.light {
+  color-scheme: light;
+  --bg-base: #F1F5F9;
+  --bg-surface: #FFFFFF;
+  --glass-bg: rgba(255, 255, 255, 0.75);
+  --glass-bg-hover: rgba(255, 255, 255, 0.92);
+  --glass-border: rgba(0, 0, 0, 0.08);
+  --glass-border-strong: rgba(0, 0, 0, 0.15);
+  --primary: #D97706;
+  --primary-light: #F59E0B;
+  --primary-dark: #B45309;
+  --accent: #7C3AED;
+  --accent-light: #8B5CF6;
+  --text: #0F172A;
+  --text-muted: #475569;
+  --text-subtle: #94A3B8;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.07);
+  --modal-bg: #FFFFFF;
+}
+
+html.light body {
+  background-color: #F1F5F9;
+  background-image:
+    radial-gradient(ellipse at 15% 60%, rgba(124, 58, 237, 0.05) 0%, transparent 50%),
+    radial-gradient(ellipse at 85% 15%, rgba(217, 119, 6, 0.04) 0%, transparent 40%);
+}
+
+html.light ::-webkit-scrollbar-track { background: #E2E8F0; }
+html.light ::-webkit-scrollbar-thumb { background: rgba(217, 119, 6, 0.35); }
+html.light ::-webkit-scrollbar-thumb:hover { background: #D97706; }
+
+/* ── Form controls ─────────────────────────── */
+html.light .form-control {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #0F172A;
+  color-scheme: light;
+}
+html.light .form-control::placeholder { color: #94A3B8; }
+html.light .form-control:hover { background: rgba(0, 0, 0, 0.06); border-color: rgba(0, 0, 0, 0.15); }
+html.light .form-control:focus {
+  background: rgba(217, 119, 6, 0.03);
+  border-color: #D97706;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.12);
+}
+
+/* ── Buttons ───────────────────────────────── */
+html.light .btn-primary { box-shadow: 0 4px 16px rgba(217, 119, 6, 0.25); }
+html.light .btn-primary:hover:not(:disabled) { box-shadow: 0 6px 20px rgba(217, 119, 6, 0.35); }
+
+html.light .btn-secondary {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.1);
+  color: #475569;
+}
+html.light .btn-secondary:hover { background: rgba(0, 0, 0, 0.07); border-color: rgba(0, 0, 0, 0.15); color: #0F172A; }
+
+html.light .btn-action {
+  background: rgba(0, 0, 0, 0.04);
+  border-color: rgba(0, 0, 0, 0.08);
+  color: #64748B;
+}
+html.light .btn-action:hover { background: rgba(0, 0, 0, 0.07); color: #0F172A; }
+
+/* ── Status badges ─────────────────────────── */
+html.light .status-success  { background: rgba(22, 163, 74, 0.12);  color: #15803D; border-color: rgba(22,163,74,0.25); }
+html.light .status-warning  { background: rgba(217, 119, 6, 0.12);  color: #B45309; border-color: rgba(217,119,6,0.25); }
+html.light .status-info     { background: rgba(37, 99, 235, 0.1);   color: #1D4ED8; border-color: rgba(37,99,235,0.2); }
+html.light .status-secondary{ background: rgba(100, 116, 139, 0.1); color: #64748B; border-color: rgba(100,116,139,0.2); }
+html.light .status-danger   { background: rgba(220, 38, 38, 0.1);   color: #DC2626; border-color: rgba(220,38,38,0.2); }
+html.light .status-archived { background: rgba(109, 40, 217, 0.1);  color: #6D28D9; border-color: rgba(109,40,217,0.2); }
+html.light .status-deleted  { background: rgba(100, 116, 139, 0.08);color: #94A3B8; border-color: rgba(100,116,139,0.15); }
+html.light .status-error    { background: rgba(220, 38, 38, 0.1);   color: #DC2626; border-color: rgba(220,38,38,0.2); }
+
+/* ── Tables ────────────────────────────────── */
+html.light .table-wrap {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+html.light .data-table thead tr { background: rgba(0, 0, 0, 0.03); border-bottom-color: rgba(0,0,0,0.07); }
+html.light .data-table th { color: #64748B; }
+html.light .data-table td { color: #0F172A; border-bottom-color: rgba(0,0,0,0.05); }
+html.light .data-table tbody tr:hover { background: rgba(0,0,0,0.02); }
+html.light .col-muted   { color: #64748B; }
+html.light .col-success { color: #16A34A; }
+html.light .col-error   { color: #DC2626; }
+
+/* ── Progress bar ──────────────────────────── */
+html.light .progress-bar { background: rgba(0,0,0,0.08); }
+html.light .progress-label { color: #64748B; }
+
+/* ── Modals ────────────────────────────────── */
+html.light .modal-overlay { background: rgba(0, 0, 0, 0.35); backdrop-filter: blur(6px); }
+html.light .modal-content { border-color: rgba(0,0,0,0.1); }
+html.light .modal-header { border-bottom-color: rgba(0,0,0,0.07); }
+html.light .modal-header h3 { color: #0F172A; }
+html.light .modal-footer { border-top-color: rgba(0,0,0,0.07); }
+html.light .modal-close { background: rgba(0,0,0,0.04); color: #64748B; }
+html.light .modal-close:hover { background: rgba(220,38,38,0.08); color: #DC2626; }
+
+/* ── Detail grid ───────────────────────────── */
+html.light .detail-item { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.07); }
+html.light .detail-item label { color: #94A3B8; }
+html.light .detail-item span { color: #0F172A; }
+
+/* ── Spinner ───────────────────────────────── */
+html.light .spinner { border-color: rgba(217, 119, 6, 0.15); border-top-color: #D97706; }
+
+/* ── No data ───────────────────────────────── */
+html.light .no-data { color: #94A3B8; }
+html.light .no-data p { color: #64748B; }
+html.light .no-data .no-data-subtitle { color: #94A3B8; }
+
+/* ── Page header ───────────────────────────── */
+html.light .page-header h2 { color: #0F172A; }
+
+/* ── Header ────────────────────────────────── */
+html.light .app-header {
+  background: rgba(255, 255, 255, 0.92);
+  border-bottom-color: rgba(0, 0, 0, 0.08);
+}
+html.light .brand-name { color: #0F172A; }
+html.light .nav-item { color: #64748B; }
+html.light .nav-item:hover { color: #0F172A; background: rgba(0,0,0,0.05); }
+html.light .nav-item.active { color: #D97706; background: rgba(217,119,6,0.08); }
+html.light .logout-btn { border-color: rgba(0,0,0,0.1); background: rgba(0,0,0,0.04); color: #64748B; }
+html.light .logout-btn:hover { border-color: rgba(220,38,38,0.4); color: #DC2626; background: rgba(220,38,38,0.06); }
+
+/* ── Footer ────────────────────────────────── */
+html.light .app-footer { background: rgba(255,255,255,0.7); border-top-color: rgba(0,0,0,0.07); }
+html.light .footer-brand { color: #64748B; }
+html.light .footer-copy { color: #94A3B8; }
+
+/* ── Auth card ─────────────────────────────── */
+html.light .auth-card {
+  background: rgba(255, 255, 255, 0.88);
+  border-color: rgba(0, 0, 0, 0.08);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.1), 0 0 0 1px rgba(0,0,0,0.04);
+}
+html.light .auth-header h1 { color: #0F172A; }
+html.light .auth-header p  { color: #64748B; }
+html.light .auth-footer p  { color: #64748B; }
+html.light .auth-link { color: #D97706; }
+html.light .auth-link:hover { color: #B45309; }
+
+/* ── Upload card ───────────────────────────── */
+html.light .upload-card {
+  background: rgba(255, 255, 255, 0.85);
+  border-color: rgba(0, 0, 0, 0.08);
+}
+html.light .upload-header h2 { color: #0F172A; }
+html.light .upload-header p  { color: #64748B; }
+html.light .upload-icon-wrap { background: rgba(217,119,6,0.08); border-color: rgba(217,119,6,0.15); }
+
+html.light .drop-zone { border-color: rgba(0,0,0,0.1); background: rgba(0,0,0,0.02); }
+html.light .drop-zone.dragging { border-color: #D97706; background: rgba(217,119,6,0.04); }
+html.light .drop-zone-icon { background: rgba(0,0,0,0.04); border-color: rgba(0,0,0,0.07); color: #94A3B8; }
+html.light .drop-zone.dragging .drop-zone-icon { color: #D97706; border-color: rgba(217,119,6,0.3); }
+html.light .drop-title { color: #334155; }
+html.light .drop-or    { color: #94A3B8; }
+html.light .drop-hint  { color: #94A3B8; }
+html.light .btn-browse { background: rgba(217,119,6,0.08); border-color: rgba(217,119,6,0.25); color: #D97706; }
+html.light .btn-browse:hover { background: rgba(217,119,6,0.14); }
+
+html.light .file-info { background: rgba(0,0,0,0.03); border-color: rgba(0,0,0,0.08); }
+html.light .file-info-icon { background: rgba(217,119,6,0.08); }
+html.light .file-name { color: #0F172A; }
+html.light .file-size { color: #64748B; }
+
+html.light .upload-success {
+  background: rgba(255,255,255,0.85);
+  border-color: rgba(34,197,94,0.2);
+}
+html.light .response-details { background: rgba(0,0,0,0.02); border-color: rgba(0,0,0,0.06); }
+html.light .response-item { border-bottom-color: rgba(0,0,0,0.05); }
+html.light .response-label { color: #94A3B8; }
+html.light .response-value { color: #0F172A; }
+html.light .file-id-val { color: #D97706; }
+
+/* ── Archive / Error-logs page buttons ──────── */
+html.light .btn-refresh[class*="archive"],
+html.light .btn-search {
+  box-shadow: 0 4px 12px rgba(217,119,6,0.2);
+}
+
+html.light .col-fileid { color: #D97706; }
+html.light .col-field  { color: #B45309; }
+html.light .col-errormsg { color: #DC2626; }
+html.light .col-filename { color: #D97706; }
+

@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 100;
-  background: rgba(15, 23, 42, 0.88);
+  background: rgba(9, 9, 11, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.07);
@@ -81,8 +81,62 @@
   background: rgba(245, 158, 11, 0.1);
 }
 
-/* ── Logout ────────────────────────────────── */
-.header-actions { margin-left: auto; flex-shrink: 0; }
+/* ── Theme switcher & Logout ───────────────── */
+.header-actions { margin-left: auto; display: flex; align-items: center; gap: 0.5rem; flex-shrink: 0; }
+
+.theme-switcher {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  flex-shrink: 0;
+}
+
+.theme-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 7px;
+  border: none;
+  background: transparent;
+  color: #64748B;
+  cursor: pointer;
+  transition: all 180ms ease;
+  flex-shrink: 0;
+}
+
+.theme-btn:hover {
+  color: #F59E0B;
+  background: rgba(245, 158, 11, 0.08);
+}
+
+.theme-btn.active {
+  background: rgba(245, 158, 11, 0.15);
+  color: #F59E0B;
+}
+
+/* Light mode overrides */
+:host-context(html.light) .theme-switcher {
+  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+:host-context(html.light) .theme-btn { color: #94A3B8; }
+
+:host-context(html.light) .theme-btn:hover {
+  color: #D97706;
+  background: rgba(217, 119, 6, 0.08);
+}
+
+:host-context(html.light) .theme-btn.active {
+  background: rgba(217, 119, 6, 0.15);
+  color: #D97706;
+}
 
 .logout-btn {
   display: flex;

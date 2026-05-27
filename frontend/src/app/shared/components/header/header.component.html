@@ -1,0 +1,60 @@
+<header class="app-header">
+  <!-- Top Header Bar -->
+  <div class="header-top">
+    <div class="header-container">
+      <!-- Logo Section (Left) - UPDATED WITH IMAGE -->
+      <div class="logo-section">
+        <!-- Mphasis Logo Image -->
+        <img 
+          src="Mphasis.png" 
+          alt="Mphasis Logo" 
+          class="logo-img"
+          onerror="this.style.display='none'"
+        />
+
+      </div>
+
+      <!-- Title Section (Absolute Center) -->
+      <div class="title-section">
+        <h1 class="project-title">Trade File Processing System</h1>
+      </div>
+
+      <!-- Right Section (About Us + Logout) -->
+      <div class="nav-section">
+        <a routerLink="/about" class="logout-btn" routerLinkActive="active-link">
+          <span class="nav-icon">ℹ️</span>
+          <span>About Us</span>
+        </a>
+        
+        <button *ngIf="isAuthenticated$ | async" (click)="logout()" class="logout-btn">
+          <span class="btn-icon">🚪</span>
+          <span>Logout</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Horizontal Navigation Bar - ONLY SHOW WHEN AUTHENTICATED AND NOT ON ABOUT PAGE -->
+  <nav class="horizontal-nav" *ngIf="(isAuthenticated$ | async) && showNavbar">
+    <div class="nav-wrapper">
+      <div class="nav-container">
+        <a routerLink="/upload" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">📤</span>
+          <span class="nav-text">Upload</span>
+        </a>
+        <a routerLink="/dashboard" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">📊</span>
+          <span class="nav-text">Dashboard</span>
+        </a>
+        <a routerLink="/archive" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">🗄️</span>
+          <span class="nav-text">Archive</span>
+        </a>
+        <a routerLink="/error-logs" routerLinkActive="active" class="nav-item">
+          <span class="nav-icon">⚠️</span>
+          <span class="nav-text">Error Logs</span>
+        </a>
+      </div>
+    </div>
+  </nav>
+</header>

@@ -1,0 +1,145 @@
+<div class="archive-container">
+  <div class="archive-header">
+    <h2>Archived Records</h2>
+    <div class="header-actions">
+      <button class="btn-refresh" (click)="loadArchivedFiles()">
+        <span class="icon">🔄</span> Refresh
+      </button>
+    </div>
+  </div>
+
+  <div *ngIf="loading" class="loading-overlay">
+    <div class="spinner"></div>
+    <p class="loading-text">Loading archived files...</p>
+  </div>
+
+  <div class="table-container" *ngIf="!loading">
+    <table class="files-table" *ngIf="archivedFiles.length > 0">
+      <thead>
+        <tr>
+          <th>File ID</th>
+          <th>File Name</th>
+          <th>Upload Time</th>
+          <th>Total Records</th>
+          <th>Success Count</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let file of archivedFiles" class="file-row">
+          <td>{{ file.fileId }}</td>
+          <td class="file-name">{{ file.fileName }}</td>
+          <td>{{ file.uploadTime | date: 'yyyy-MM-dd HH:mm:ss' }}</td>
+          <td>{{ file.recordCount }}</td>
+          <td class="success-count">{{ file.successCount }}</td>
+          <td>
+            <span class="status-badge status-archived">
+              {{ file.status }}
+            </span>
+          </td>
+          <td class="actions-cell">
+            <button 
+              class="btn-action btn-view" 
+              (click)="viewFile(file)"
+              title="View Details"
+            >
+              👁️
+            </button>
+            <button 
+              class="btn-action btn-unarchive" 
+              (click)="openUnarchiveConfirm(file)"
+              title="Unarchive"
+            >
+              📤
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div *ngIf="archivedFiles.length === 0" class="no-data">
+      <div class="no-data-icon">🗄️</div>
+      <p>No archived files found</p>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay" *ngIf="showDetailsModal" (click)="closeDetailsModal()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <div class="modal-header">
+      <h3>Archived File Details</h3>
+      <button class="modal-close" (click)="closeDetailsModal()">×</button>
+    </div>
+
+    <div class="modal-body" *ngIf="selectedFile">
+      <div class="details-grid">
+        <div class="detail-item">
+          <label>File ID:</label>
+          <span>{{ selectedFile.fileId }}</span>
+        </div>
+        <div class="detail-item">
+          <label>File Name:</label>
+          <span>{{ selectedFile.fileName }}</span>
+        </div>
+        <div class="detail-item">
+          <label>Upload Time:</label>
+          <span>{{ selectedFile.uploadTime | date: 'yyyy-MM-dd HH:mm:ss' }}</span>
+        </div>
+        <div class="detail-item">
+          <label>Status:</label>
+          <span class="status-badge status-archived">{{ selectedFile.status }}</span>
+        </div>
+        <div class="detail-item">
+          <label>Total Records:</label>
+          <span>{{ selectedFile.recordCount }}</span>
+        </div>
+        <div class="detail-item">
+          <label>Successful Records:</label>
+          <span class="success-count">{{ selectedFile.successCount }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <button class="btn-primary" (click)="closeDetailsModal()">Close</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal-overlay confirm-overlay" *ngIf="showConfirmModal" (click)="closeConfirmModal()">
+  <div class="modal-content confirm-modal" (click)="$event.stopPropagation()">
+    <div class="confirm-icon icon-unarchive">
+      <span>📤</span>
+    </div>
+    
+    <h3 class="confirm-title">Unarchive File?</h3>
+    
+    <p class="confirm-message" *ngIf="confirmFile">
+      Are you sure you want to unarchive 
+      <strong>"{{ confirmFile.fileName }}"</strong>?
+    </p>
+    
+    <div class="confirm-details" *ngIf="confirmFile">
+      <div class="confirm-detail-item">
+        <span class="label">File ID:</span>
+        <span class="value">{{ confirmFile.fileId }}</span>
+      </div>
+      <div class="confirm-detail-item">
+        <span class="label">Records:</span>
+        <span class="value">{{ confirmFile.recordCount }}</span>
+      </div>
+    </div>
+
+    <p class="confirm-info">
+      ℹ️ This file will be moved back to the dashboard.
+    </p>
+
+    <div class="confirm-actions">
+      <button class="btn-cancel" (click)="closeConfirmModal()">Cancel</button>
+      <button class="btn-confirm btn-confirm-unarchive" (click)="confirmUnarchive()">
+        Yes, Unarchive
+      </button>
+    </div>
+  </div>
+</div>

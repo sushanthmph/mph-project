@@ -1,0 +1,120 @@
+<div class="upload-container">
+  <div class="upload-card" *ngIf="!uploadResponse">
+    <div class="upload-header">
+      <h2>Upload Transaction File</h2>
+      <p>Upload TXT or CSV files containing transaction data</p>
+    </div>
+
+    <div 
+      class="drop-zone"
+      [class.dragging]="isDragging"
+      (dragover)="onDragOver($event)"
+      (dragleave)="onDragLeave($event)"
+      (drop)="onDrop($event)"
+    >
+      <div class="drop-icon">📁</div>
+      <p class="drop-text">Drag and drop your file here</p>
+      <p class="drop-or">or</p>
+      <label for="fileInput" class="btn-browse">
+        Browse Files
+        <input
+          type="file"
+          id="fileInput"
+          (change)="onFileSelected($event)"
+          accept=".txt,.csv"
+          hidden
+        />
+      </label>
+      <p class="drop-hint">
+        Supported formats: {{ allowedExtensions.join(', ').toUpperCase() }} 
+        (Max size: {{ maxFileSize / 1048576}}MB)
+      </p>
+    </div>
+
+    <div class="file-info" *ngIf="selectedFile">
+      <div class="file-details">
+        <div class="file-icon">📄</div>
+        <div class="file-text">
+          <p class="file-name">{{ selectedFile.name }}</p>
+          <p class="file-size">{{ getFileSize(selectedFile.size) }}</p>
+        </div>
+        <button class="btn-remove" (click)="resetUpload()">✕</button>
+      </div>
+
+      <button 
+        class="btn-upload" 
+        (click)="uploadFile()"
+        [disabled]="loading"
+      >
+        <span *ngIf="!loading">Upload File</span>
+        <span *ngIf="loading">Uploading...</span>
+      </button>
+    </div>
+  </div>
+
+  <div class="upload-success" *ngIf="uploadResponse">
+    <div class="success-icon">✓</div>
+    <h2>File Uploaded Successfully!</h2>
+    
+    <!-- ✅ NEW: Processing indicator -->
+    <div class="processing-indicator" *ngIf="isProcessing">
+      <div class="spinner"></div>
+      <p>Processing file... Please wait</p>
+    </div>
+
+    <div class="response-details">
+      <div class="response-item">
+        <label>File ID:</label>
+        <span class="file-id">{{ uploadResponse.fileId }}</span>
+      </div>
+      <div class="response-item">
+        <label>File Name:</label>
+        <span>{{ uploadResponse.fileName }}</span>
+      </div>
+      <div class="response-item">
+        <label>Status:</label>
+        <span class="status-badge" 
+              [class.status-processing]="isProcessing"
+              [class.status-partial]="hasErrors() && !isProcessing"
+              [class.status-success]="!hasErrors() && !isProcessing">
+          {{ getStatusDisplay() }}
+        </span>
+      </div>
+
+      <!-- ✅ Show counts if processing is complete -->
+      <ng-container *ngIf="!isProcessing && getTotalRecords() > 0">
+        <div class="response-item">
+          <label>Total Records:</label>
+          <span>{{ getTotalRecords() }}</span>
+        </div>
+        <div class="response-item">
+          <label>Successful:</label>
+          <span class="success-count">{{ getSuccessCount() }}</span>
+        </div>
+        
+      </ng-container>
+
+      <div class="response-item">
+        <label>Message:</label>
+        <span>{{ uploadResponse.message }}</span>
+      </div>
+    </div>
+
+    <!-- ✅ NEW: Error warning message -->
+    <div class="error-warning" *ngIf="hasErrors() && !isProcessing">
+      <div class="warning-header">
+        <span class="warning-icon">⚠️</span>
+        <strong>Error Transactions Detected</strong>
+      </div>
+      <p>
+        Your file has {{ getErrorCount() }} error transaction(s). 
+        Please use <a routerLink="/error-logs" class="error-link">error logs</a> 
+        to know about the details of failed transactions.
+      </p>
+    </div>
+
+    <button class="btn-primary" (click)="resetUpload()">
+      Upload Another File
+    </button>
+  </div>
+</div>

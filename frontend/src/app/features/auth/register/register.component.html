@@ -1,0 +1,180 @@
+<div class="register-container">
+  <div class="register-card">
+    <div class="register-header">
+      <h2>Create Account</h2>
+      <p>Join Trade File Processing System</p>
+    </div>
+
+    <form (ngSubmit)="onSubmit()" #registerForm="ngForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input 
+            type="text" 
+            id="firstName" 
+            name="firstName" 
+            [(ngModel)]="registerData.firstName" 
+            required
+            #firstNameField="ngModel"
+            pattern="^[a-zA-Z\s]+$"
+            placeholder="First name" 
+            class="form-control"
+            maxlength="20"
+            [class.is-invalid]="firstNameField.invalid && (firstNameField.dirty || firstNameField.touched)"
+            [class.is-valid]="firstNameField.valid && firstNameField.touched" />
+          
+          <div class="validation-error" *ngIf="firstNameField.invalid && (firstNameField.dirty || firstNameField.touched)">
+            <span *ngIf="firstNameField.errors?.['required']">First name is required.</span>
+            <span *ngIf="firstNameField.errors?.['pattern']">First name can only contain letters and spaces.</span>
+            <span *ngIf="firstNameField.errors?.['maxlength']">First name cannot exceed 20 characters.</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input 
+            type="text" 
+            id="lastName" 
+            name="lastName" 
+            [(ngModel)]="registerData.lastName" 
+            required
+            #lastNameField="ngModel"
+            pattern="^[a-zA-Z\s]+$"
+            placeholder="Last name" 
+            maxlength="10"
+            class="form-control"
+            [class.is-invalid]="lastNameField.invalid && (lastNameField.dirty || lastNameField.touched)"
+            [class.is-valid]="lastNameField.valid && lastNameField.touched" />
+          
+          <div class="validation-error" *ngIf="lastNameField.invalid && (lastNameField.dirty || lastNameField.touched)">
+            <span *ngIf="lastNameField.errors?.['required']">Last name is required.</span>
+            <span *ngIf="lastNameField.errors?.['pattern']">Last name can only contain letters and spaces.</span>
+            <span *ngIf="lastNameField.errors?.['maxlength']">Last name cannot exceed 10 characters.</span>
+          </div>
+        </div>
+      </div>
+
+
+<div class="form-group">
+  <label for="username">Username</label>
+  <input 
+    type="text" 
+    id="username" 
+    name="username" 
+    [(ngModel)]="registerData.username" 
+    required
+    #usernameField="ngModel"
+    pattern="^\S+$"
+    placeholder="Choose a username" 
+    class="form-control"
+    [class.is-invalid]="usernameField.invalid && (usernameField.dirty || usernameField.touched)"
+    [class.is-valid]="usernameField.valid && usernameField.touched" />
+  
+  <div class="validation-error" *ngIf="usernameField.invalid && (usernameField.dirty || usernameField.touched)">
+    <span *ngIf="usernameField.errors?.['required']">Username is required.</span>
+    <span *ngIf="usernameField.errors?.['pattern']">Username cannot contain spaces.</span>
+  </div>
+</div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input 
+          type="email" 
+          id="email" 
+          name="email" 
+          [(ngModel)]="registerData.email" 
+          required 
+          #emailField="ngModel"
+          pattern="^[a-zA-Z0-9._%+\-]+@[a-zA-Z0-9.\-]+\.[a-zA-Z]{2,}$" 
+          placeholder="your.email@example.com"
+          class="form-control" 
+          [class.is-invalid]="emailField.invalid && (emailField.dirty || emailField.touched)"
+          [class.is-valid]="emailField.valid && emailField.touched" />
+
+        <div class="validation-error" *ngIf="emailField.invalid && (emailField.dirty || emailField.touched)">
+          <span *ngIf="emailField.errors?.['required']">Email is required.</span>
+          <span *ngIf="emailField.errors?.['pattern']">Please enter a valid email address (e.g. user&#64;example.com).</span>
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            [(ngModel)]="registerData.password" 
+            required
+            #passwordField="ngModel" 
+            pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@._])[A-Za-z\d!@._]{8,}$"
+            placeholder="Password" 
+            class="form-control"
+            [class.is-invalid]="passwordField.invalid && (passwordField.dirty || passwordField.touched)"
+            [class.is-valid]="passwordField.valid && passwordField.touched" />
+
+          <div class="validation-error" *ngIf="passwordField.invalid && (passwordField.dirty || passwordField.touched)">
+            <span *ngIf="passwordField.errors?.['required']">
+              Password is required.
+            </span>
+            <span *ngIf="passwordField.errors?.['pattern']">
+              Password must be at least 8 characters and include:
+              <ul class="password-rules">
+                <li [class.rule-met]="hasUppercase(registerData.password)">At least 1 uppercase letter (A–Z)</li>
+                <li [class.rule-met]="hasLowercase(registerData.password)">At least 1 lowercase letter (a–z)</li>
+                <li [class.rule-met]="hasNumber(registerData.password)">At least 1 number (0–9)</li>
+                <li [class.rule-met]="hasSpecialChar(registerData.password)">At least 1 special character ( ! &#64; . _ )</li>
+                <li [class.rule-met]="hasMinLength(registerData.password)">Minimum 8 characters</li>
+              </ul>
+            </span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <input 
+            type="password" 
+            id="confirmPassword" 
+            name="confirmPassword" 
+            [(ngModel)]="confirmPassword" 
+            required
+            #confirmPasswordField="ngModel" 
+            placeholder="Confirm Password" 
+            class="form-control" 
+            [class.is-invalid]="
+              confirmPasswordField.touched &&
+              (confirmPasswordField.errors?.['required'] || registerData.password !== confirmPassword)
+            " 
+            [class.is-valid]="
+              confirmPasswordField.touched &&
+              !confirmPasswordField.errors?.['required'] &&
+              registerData.password === confirmPassword
+            " />
+
+          <div class="validation-error" *ngIf="confirmPasswordField.touched">
+            <span *ngIf="confirmPasswordField.errors?.['required']">
+              Please confirm your password.
+            </span>
+            <span *ngIf="
+                !confirmPasswordField.errors?.['required'] &&
+                registerData.password !== confirmPassword
+              ">
+              Passwords do not match.
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <button 
+        type="submit" 
+        class="btn-primary"
+        [disabled]="loading || !registerForm.valid || registerData.password !== confirmPassword">
+        <span *ngIf="!loading">Register</span>
+        <span *ngIf="loading">Creating account...</span>
+      </button>
+    </form>
+
+    <div class="login-link">
+      <p>Already have an account? <a routerLink="/login">Login here</a></p>
+    </div>
+  </div>
+</div>
